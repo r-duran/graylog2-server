@@ -62,7 +62,7 @@ public class ProcessBufferProcessor implements EventHandler<LogMessageEvent> {
         if (LOG.isDebugEnabled())
             LOG.debug("Starting to process message <" + msg.getId() + ">.");
 
-        for (Class<? extends MessageFilter> filterType : server.getFilters()) {
+        for (Class<? extends MessageFilter> filterType : server.getSystemFilters()) {
             try {
                 // Always create a new instance of this filter.
                 MessageFilter filter = filterType.newInstance();

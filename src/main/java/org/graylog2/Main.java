@@ -165,11 +165,11 @@ public final class Main {
         if (configuration.isSyslogTcpEnabled()) { server.registerInput(new SyslogTCPInput()); }
 
         // Register message filters.
-        server.registerFilter(RewriteFilter.class);
-        server.registerFilter(BlacklistFilter.class);
-        if (configuration.isEnableTokenizerFilter()) { server.registerFilter(TokenizerFilter.class); }
-        server.registerFilter(StreamMatcherFilter.class);
-        server.registerFilter(CounterUpdateFilter.class);
+        server.registerSystemFilter(RewriteFilter.class);
+        server.registerSystemFilter(BlacklistFilter.class);
+        if (configuration.isEnableTokenizerFilter()) { server.registerSystemFilter(TokenizerFilter.class); }
+        server.registerSystemFilter(StreamMatcherFilter.class);
+        server.registerSystemFilter(CounterUpdateFilter.class);
 
         // Register outputs.
         server.registerOutput(ElasticSearchOutput.class);
